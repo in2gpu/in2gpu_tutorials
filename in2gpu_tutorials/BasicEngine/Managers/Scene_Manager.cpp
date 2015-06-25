@@ -1,4 +1,5 @@
 #include "Scene_Manager.h"
+using namespace BasicEngine;
 using namespace Managers;
 
 Scene_Manager::Scene_Manager()

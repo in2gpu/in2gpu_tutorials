@@ -2,43 +2,46 @@
 #include <glew\glew.h>
 #include <freeglut\freeglut.h>
 
-namespace Core
+namespace BasicEngine
 {
-	struct FramebufferInfo
+	namespace Core
 	{
-		unsigned int flags;
-		bool msaa;
-
-		FramebufferInfo()
+		struct FramebufferInfo
 		{
+			unsigned int flags;
+			bool msaa;
 
-			flags = GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH;
-			msaa = false;
-		}
+			FramebufferInfo()
+			{
 
-		FramebufferInfo(bool color, bool depth, bool stencil, bool msaa)
-		{
+				flags = GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH;
+				msaa = false;
+			}
 
-			flags = GLUT_DOUBLE;
-			if (color)
-				flags |= GLUT_RGBA | GLUT_ALPHA;
+			FramebufferInfo(bool color, bool depth, bool stencil, bool msaa)
+			{
 
-			if (depth)
-				flags |= GLUT_DEPTH;
+				flags = GLUT_DOUBLE;
+				if (color)
+					flags |= GLUT_RGBA | GLUT_ALPHA;
 
-			if (stencil)
-				flags |= GLUT_STENCIL;
+				if (depth)
+					flags |= GLUT_DEPTH;
 
-			if (msaa)
+				if (stencil)
+					flags |= GLUT_STENCIL;
 
-				flags |= GLUT_MULTISAMPLE;
-			this->msaa = msaa;
-		}
+				if (msaa)
 
-		void operator=(const FramebufferInfo& info)
-		{
-			flags = info.flags;
-			msaa = info.msaa;
-		}
-	};
+					flags |= GLUT_MULTISAMPLE;
+				this->msaa = msaa;
+			}
+
+			void operator=(const FramebufferInfo& info)
+			{
+				flags = info.flags;
+				msaa = info.msaa;
+			}
+		};
+	}
 }

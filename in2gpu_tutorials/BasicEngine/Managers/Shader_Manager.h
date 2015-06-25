@@ -5,31 +5,33 @@
 #include <vector>
 #include <glew\glew.h>
 #include <freeglut\freeglut.h>
-
-namespace Managers
+namespace BasicEngine
 {
-
-	class Shader_Manager
+	namespace Managers
 	{
 
-	public:
+		class Shader_Manager
+		{
 
-		Shader_Manager(void);
-		~Shader_Manager(void);
+		public:
 
-		void CreateProgram(const std::string& shaderName,
-						   const std::string& VertexShaderFilename,
-						   const std::string& FragmentShaderFilename);
+			Shader_Manager(void);
+			~Shader_Manager(void);
 
-		static const GLuint GetShader(const std::string&);
+			void CreateProgram(const std::string& shaderName,
+							   const std::string& VertexShaderFilename,
+							   const std::string& FragmentShaderFilename);
 
-	private:
+			static const GLuint GetShader(const std::string&);
 
-		std::string ReadShader(const std::string& filename);
-		GLuint CreateShader(GLenum shaderType,
-							const std::string& source,
-							const std::string& shaderName);
+		private:
 
-		static std::map<std::string, GLuint> programs;
-	};
+			std::string ReadShader(const std::string& filename);
+			GLuint CreateShader(GLenum shaderType,
+								const std::string& source,
+								const std::string& shaderName);
+
+			static std::map<std::string, GLuint> programs;
+		};
+	}
 }

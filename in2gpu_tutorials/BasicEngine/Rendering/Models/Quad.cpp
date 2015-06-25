@@ -1,4 +1,5 @@
 #include "Quad.h"
+using namespace BasicEngine;
 using namespace Rendering;
 using namespace Models;
 

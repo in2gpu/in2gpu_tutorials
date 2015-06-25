@@ -1,5 +1,5 @@
 #include "Shader_Manager.h"
-
+using namespace BasicEngine;
 using namespace Managers;
 
 std::map<std::string, GLuint> Shader_Manager::programs;

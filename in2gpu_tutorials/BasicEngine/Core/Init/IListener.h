@@ -1,9 +1,11 @@
 #pragma once
-namespace Core
+namespace BasicEngine
 {
-
-	class IListener
+	namespace Core
 	{
+
+		class IListener
+		{
 		public:
 
 			virtual ~IListener() = 0;
@@ -15,11 +17,12 @@ namespace Core
 			virtual void NotifyReshape(int width,
 									   int height,
 									   int previous_width,
-								       int previous_height) = 0;
-	};
+									   int previous_height) = 0;
+		};
 
-	inline IListener::~IListener()
-	{
-		//implementation of pure virtual destructor
+		inline IListener::~IListener()
+		{
+			//implementation of pure virtual destructor
+		}
 	}
 }

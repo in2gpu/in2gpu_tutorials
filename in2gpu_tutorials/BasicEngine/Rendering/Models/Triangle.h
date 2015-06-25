@@ -1,23 +1,26 @@
 #pragma once
 #include "Model.h"
-namespace Rendering
+namespace BasicEngine
 {
-	namespace Models
+	namespace Rendering
 	{
-
-		class Triangle : public Model
+		namespace Models
 		{
-		public:
-			Triangle();
-			~Triangle();
 
-			void Create();
-			virtual void Draw() override final;
-			virtual void Update() override final;
-			
-		private:
+			class Triangle : public Model
+			{
+			public:
+				Triangle();
+				~Triangle();
 
-		};
+				void Create();
+				virtual void Draw() override final;
+				virtual void Update() override final;
+
+			private:
+
+			};
+		}
 	}
 }
 

@@ -2,17 +2,20 @@
 #include <iostream>
 #include <glew\glew.h>
 #include <freeglut\freeglut.h>
-namespace Core
+namespace BasicEngine
 {
-	namespace Init
+	namespace Core
 	{
-		class Init_GLEW
+		namespace Init
 		{
+			class Init_GLEW
+			{
 			public:
-			  	 Init_GLEW();
+				Init_GLEW();
 				~Init_GLEW();
 
 				static void Init();
-		};
+			};
+		}
 	}
 }

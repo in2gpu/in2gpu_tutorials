@@ -1,6 +1,5 @@
 #include "Cube.h"
-using namespace Rendering;
-using namespace Models;
+using namespace BasicEngine::Rendering;
 
 #define PI 3.14159265
 

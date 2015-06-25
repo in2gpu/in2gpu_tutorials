@@ -1,70 +1,72 @@
 #pragma once
 #include <string>
-
-namespace Core
+namespace BasicEngine
 {
-
-	struct WindowInfo
+	namespace Core
 	{
 
-
-		std::string name;
-		int width, height;
-		int position_x, position_y;
-		bool isReshapable;
-
-		WindowInfo()
+		struct WindowInfo
 		{
 
-			name = "OpenGL tutorial";
-			width = 800; height = 600;
-			position_x = 300;
-			position_y = 300;
-			isReshapable = true;
-		}
 
-		WindowInfo(std::string name, int start_position_x, int start_position_y, int width, int height, bool is_reshapable)
-		{
+			std::string name;
+			int width, height;
+			int position_x, position_y;
+			bool isReshapable;
 
-			this->name = name;
+			WindowInfo()
+			{
 
-			this->position_x = start_position_x;
-			this->position_y = start_position_y;
+				name = "OpenGL tutorial";
+				width = 800; height = 600;
+				position_x = 300;
+				position_y = 300;
+				isReshapable = true;
+			}
 
-			this->width = width;
-			this->height = height;
+			WindowInfo(std::string name, int start_position_x, int start_position_y, int width, int height, bool is_reshapable)
+			{
 
-			this->isReshapable = is_reshapable;
-		}
+				this->name = name;
 
-		WindowInfo(const WindowInfo& windowInfo)
-		{
+				this->position_x = start_position_x;
+				this->position_y = start_position_y;
 
-			name = windowInfo.name;
+				this->width = width;
+				this->height = height;
 
-			position_x = windowInfo.position_x;
-			position_y = windowInfo.position_y;
+				this->isReshapable = is_reshapable;
+			}
 
-			width = windowInfo.width;
-			height = windowInfo.height;
+			WindowInfo(const WindowInfo& windowInfo)
+			{
 
-			isReshapable = windowInfo.isReshapable;
-		}
+				name = windowInfo.name;
 
-		void operator=(const WindowInfo& windowInfo)
-		{
+				position_x = windowInfo.position_x;
+				position_y = windowInfo.position_y;
 
-			name = windowInfo.name;
+				width = windowInfo.width;
+				height = windowInfo.height;
 
-			position_x = windowInfo.position_x;
-			position_y = windowInfo.position_y;
+				isReshapable = windowInfo.isReshapable;
+			}
 
-			width = windowInfo.width;
-			height = windowInfo.height;
+			void operator=(const WindowInfo& windowInfo)
+			{
 
-			isReshapable = windowInfo.isReshapable;
-		}
+				name = windowInfo.name;
 
-	};
+				position_x = windowInfo.position_x;
+				position_y = windowInfo.position_y;
 
-};
+				width = windowInfo.width;
+				height = windowInfo.height;
+
+				isReshapable = windowInfo.isReshapable;
+			}
+
+		};
+
+	}
+}

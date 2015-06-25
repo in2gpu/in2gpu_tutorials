@@ -7,44 +7,46 @@
 #include "Init_GLEW.h"
 #include "IListener.h"
 #include "DebugOutput.h"
-#include "../../Managers/Scene_Manager.h"
-namespace Core 
+namespace BasicEngine
 {
-	namespace Init
+	namespace Core
 	{
-		class Init_GLUT
+		namespace Init
 		{
-						
-		public:
-			static void Init(const Core::WindowInfo& window,
-							 const Core::ContextInfo& context,
-							 const Core::FramebufferInfo& framebufferInfo);
-						
-		public:
-			static void Run(void);
-			static void Close();
-			void EnterFullscreen();
-			void ExitFullscreen();
-			static void PrintOpenGLInfo(const Core::WindowInfo& windowInfo,
-				                        const Core::ContextInfo& context);
-		private:
-			static void IdleCallback(void);
-			static void DisplayCallback(void);
-			static void ReshapeCallback(int width, int height);
-			static void CloseCallback();
-		
+			class Init_GLUT
+			{
 
-		private:
-			static IListener*   listener;
-			static WindowInfo   windowInformation;
-		public:
-			static void SetListener(Managers::Scene_Manager*& iListener);
-				
-			
-		};
+			public:
+				static void Init(const Core::WindowInfo& window,
+								 const Core::ContextInfo& context,
+								 const Core::FramebufferInfo& framebufferInfo);
+
+			public:
+				static void Run(void);
+				static void Close();
+				void EnterFullscreen();
+				void ExitFullscreen();
+				static void PrintOpenGLInfo(const Core::WindowInfo& windowInfo,
+											const Core::ContextInfo& context);
+			private:
+				static void IdleCallback(void);
+				static void DisplayCallback(void);
+				static void ReshapeCallback(int width, int height);
+				static void CloseCallback();
+
+
+			private:
+				static IListener*   listener;
+				static WindowInfo   windowInformation;
+			public:
+				static void SetListener(Core::IListener* iListener);
+
+
+			};
+
+		}
 
 	}
-
 }
 
 
