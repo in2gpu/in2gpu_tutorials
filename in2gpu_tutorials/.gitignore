@@ -175,7 +175,7 @@ UpgradeLog*.htm
 # SQL Server files
 *.mdf
 *.ldf
-
+*.sdf
 # Business Intelligence projects
 *.rdl.data
 *.bim.layout
@@ -183,3 +183,4 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+!Dependencies
