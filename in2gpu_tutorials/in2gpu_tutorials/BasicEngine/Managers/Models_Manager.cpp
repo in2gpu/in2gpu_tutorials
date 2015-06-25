@@ -16,10 +16,6 @@ Models_Manager::Models_Manager()
 	quad->Create();
 	gameModelList_NDC["quad"] = quad;
 
-	Models::Cube* cube = new Models::Cube();
-	cube->SetProgram(Shader_Manager::GetShader("colorShader"));
-	cube->Create();
-	gameModelList["cube"] = cube;
 
 }
 
@@ -38,8 +34,6 @@ Models_Manager::~Models_Manager()
 	}
 	gameModelList_NDC.clear();
 }
-
-
 
 void Models_Manager::Update()
 {
@@ -97,3 +91,9 @@ const IGameObject& Models_Manager::GetModel_NDC(const std::string& gameModelName
 {
 	return (*gameModelList_NDC.at(gameModelName));
 }
+
+void Models_Manager::SetModel(const std::string& gameObjectName, IGameObject* gameObject)
+{
+	gameModelList[gameObjectName.c_str()] = gameObject;
+}
+

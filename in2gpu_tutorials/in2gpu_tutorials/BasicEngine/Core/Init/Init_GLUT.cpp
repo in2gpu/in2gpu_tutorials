@@ -144,7 +144,7 @@ void Init_GLUT::PrintOpenGLInfo(const Core::WindowInfo& windowInfo, const Core::
 	std::cout << "*****************************************************************" << std::endl;
 }
 
-void Init_GLUT::SetListener(Core::IListener*& iListener)
+void Init_GLUT::SetListener(Managers::Scene_Manager*& iListener)
 {
 	listener = iListener;
 }

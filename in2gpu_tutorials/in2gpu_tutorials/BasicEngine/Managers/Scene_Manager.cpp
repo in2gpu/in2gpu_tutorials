@@ -58,3 +58,8 @@ void Scene_Manager::NotifyReshape(int width, int height,
 	projection_matrix[2][3] = 1.0f;
 	projection_matrix[3][2] = 2.0f * near1 * far1 / (near1 - far1);
 }
+
+Managers::Models_Manager* Scene_Manager::GetModels_Manager()
+{
+	return models_manager;
+}

@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <Core\Init\Init_GLUT.h>
 #include <Managers\Scene_Manager.h>
-
+#include "Cube.h"
 using namespace Core;
 using namespace Init;
 int main(int argc, char **argv) 
@@ -11,13 +11,20 @@ int main(int argc, char **argv)
 	ContextInfo context(4, 5, true);
 	FramebufferInfo frameBufferInfo(true, true, true, true);
 
-	Init::Init_GLUT::Init(window, context, frameBufferInfo);
+	Init_GLUT::Init(window, context, frameBufferInfo);
 
-	IListener* scene = new Managers::Scene_Manager();
-	Init::Init_GLUT::SetListener(scene);
+	Managers::Scene_Manager* scene = new Managers::Scene_Manager();
+	Init_GLUT::SetListener(scene);
 
-	Init::Init_GLUT::Run();
+	Rendering::Models::Cube* cube = new Rendering::Models::Cube();
+	cube->SetProgram(Managers::Shader_Manager::GetShader("colorShader"));
+	cube->Create();
 
+	scene->GetModels_Manager()->SetModel("cube", cube);
+	
+
+	Init_GLUT::Run();
+	
 	delete scene;
 	return 0;
 }

@@ -7,7 +7,7 @@
 #include "Init_GLEW.h"
 #include "IListener.h"
 #include "DebugOutput.h"
-
+#include "../../Managers/Scene_Manager.h"
 namespace Core 
 {
 	namespace Init
@@ -38,7 +38,7 @@ namespace Core
 			static IListener*   listener;
 			static WindowInfo   windowInformation;
 		public:
-			static void SetListener(Core::IListener*& iListener);
+			static void SetListener(Managers::Scene_Manager*& iListener);
 				
 			
 		};

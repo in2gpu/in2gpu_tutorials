@@ -21,7 +21,6 @@
   <ItemGroup>
     <ClCompile Include="Core\Init\Init_GLEW.cpp" />
     <ClCompile Include="Core\Init\Init_GLUT.cpp" />
-    <ClCompile Include="Rendering\Models\Cube.cpp" />
     <ClCompile Include="Managers\Models_Manager.cpp" />
     <ClCompile Include="Managers\Scene_Manager.cpp" />
     <ClCompile Include="Managers\Shader_Manager.cpp" />
@@ -37,7 +36,6 @@
     <ClInclude Include="Core\Init\Init_GLEW.h" />
     <ClInclude Include="Core\Init\Init_GLUT.h" />
     <ClInclude Include="Core\Init\WindowInfo.h" />
-    <ClInclude Include="Rendering\Models\Cube.h" />
     <ClInclude Include="Managers\Models_Manager.h" />
     <ClInclude Include="Managers\Scene_Manager.h" />
     <ClInclude Include="Managers\Shader_Manager.h" />
