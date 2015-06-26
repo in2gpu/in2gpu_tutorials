@@ -5,16 +5,16 @@ using namespace Rendering;
 
 Models_Manager::Models_Manager()
 {
-	
-	Models::Triangle* triangle = new Models::Triangle();
-	triangle->SetProgram(Shader_Manager::GetShader("colorShader"));
-	triangle->Create();
-	gameModelList_NDC["triangle"] = triangle;
+	//two examples - when in doubt decomment these to see something on the screen
+	//Models::Triangle* triangle = new Models::Triangle();
+	//triangle->SetProgram(Shader_Manager::GetShader("colorShader"));
+	//triangle->Create();
+	//gameModelList_NDC["triangle"] = triangle;
 
-	Models::Quad* quad = new Models::Quad();
-	quad->SetProgram(Shader_Manager::GetShader("colorShader"));
-	quad->Create();
-	gameModelList_NDC["quad"] = quad;
+	//Models::Quad* quad = new Models::Quad();
+	//quad->SetProgram(Shader_Manager::GetShader("colorShader"));
+	//quad->Create();
+	//gameModelList_NDC["quad"] = quad;
 
 
 }

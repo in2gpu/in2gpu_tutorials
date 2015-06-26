@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Core\Init\Init_GLEW.cpp" />
     <ClCompile Include="Core\Init\Init_GLUT.cpp" />
     <ClCompile Include="Managers\Models_Manager.cpp" />
@@ -29,6 +30,7 @@
     <ClCompile Include="Rendering\Models\Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine.h" />
     <ClInclude Include="Core\Init\ContextInfo.h" />
     <ClInclude Include="Core\Init\DebugOutput.h" />
     <ClInclude Include="Core\Init\FrameBufferInfo.h" />
