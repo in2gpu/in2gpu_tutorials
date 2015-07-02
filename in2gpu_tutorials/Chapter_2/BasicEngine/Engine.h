@@ -10,9 +10,13 @@ namespace BasicEngine
 		Engine();
 		~Engine();
 
+		//OpenGL and manager init
 		bool Init();
+
+		//Loop
 		void Run();
 
+		//Getters
 		Managers::Scene_Manager*  GetScene_Manager()  const;
 		Managers::Shader_Manager* GetShader_Manager() const;
 		Managers::Models_Manager* GetModels_Manager() const;

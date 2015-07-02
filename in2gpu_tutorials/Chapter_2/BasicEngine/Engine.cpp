@@ -1,22 +1,14 @@
 #include "Engine.h"
 using namespace BasicEngine;
 using namespace Core;
+
 Engine::Engine()
 {
 
 }
-Engine::~Engine()
-{
-	if (m_scene_manager)
-	delete m_scene_manager;
 
-	if (m_shader_manager)
-	delete m_shader_manager;
 
-	if (m_models_manager)
-	delete m_models_manager;
-}
-
+//You can set params for init
 bool Engine::Init()
 {
 	WindowInfo window(std::string("in2gpu OpenGL Chapter 2 tutorial"), 400, 200, 800, 600, true);
@@ -47,6 +39,7 @@ bool Engine::Init()
 	return true;
 }
 
+//Create the loop
 void Engine::Run()
 {
 	Init::Init_GLUT::Run();
@@ -66,4 +59,16 @@ Managers::Shader_Manager* Engine::GetShader_Manager() const
 Managers::Models_Manager* Engine::GetModels_Manager() const
 {
 	return m_models_manager;
+}
+
+Engine::~Engine()
+{
+	if (m_scene_manager)
+		delete m_scene_manager;
+
+	if (m_shader_manager)
+		delete m_shader_manager;
+
+	if (m_models_manager)
+		delete m_models_manager;
 }
