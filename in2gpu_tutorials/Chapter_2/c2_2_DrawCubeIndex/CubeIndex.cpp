@@ -24,12 +24,12 @@ void CubeIndex::Create()
 	glBindVertexArray(vao);
 
 	std::vector<VertexFormat> vertices; 
-	std::vector<unsigned int>  indices = { 0,  1,  2,  0,  2,  3, //front
-										   4,  5,  6,  4,  6,  7, //right
-										   8,  9,  10, 8,  10,  11,//back
-										   12, 13, 14, 12, 14, 15,//left
-										   16, 17, 18, 16, 18, 19,//left
-										   20, 21, 22, 20, 22, 23 };
+	std::vector<unsigned int>  indices = { 0,  1,  2,  0,  2,  3,   //front
+										   4,  5,  6,  4,  6,  7,   //right
+										   8,  9,  10, 8,  10, 11,  //back
+										   12, 13, 14, 12, 14, 15,  //left
+										   16, 17, 18, 16, 18, 19,  //upper
+										   20, 21, 22, 20, 22, 23}; //bottom
 	//front
 	vertices.push_back(VertexFormat(glm::vec3(-1.0, -1.0, 1.0), glm::vec4(0, 0, 1, 1)));
 	vertices.push_back(VertexFormat(glm::vec3( 1.0, -1.0, 1.0), glm::vec4(1, 0, 1, 1)));
@@ -52,7 +52,7 @@ void CubeIndex::Create()
 	vertices.push_back(VertexFormat(glm::vec3(-1.0, -1.0, -1.0),  glm::vec4(0, 0, 0, 1)));
 	vertices.push_back(VertexFormat(glm::vec3(-1.0, -1.0,  1.0),  glm::vec4(0, 0, 1, 1)));
 	vertices.push_back(VertexFormat(glm::vec3(-1.0,  1.0,  1.0),  glm::vec4(0, 1, 1, 1)));
-	vertices.push_back(VertexFormat(glm::vec3(-1.0, 1.0, -1.0),   glm::vec4(0, 1, 0, 1)));
+	vertices.push_back(VertexFormat(glm::vec3(-1.0,  1.0, -1.0),  glm::vec4(0, 1, 0, 1)));
 
 	//upper
 	vertices.push_back(VertexFormat(glm::vec3( 1.0, 1.0,  1.0), glm::vec4(1, 1, 1, 1)));
