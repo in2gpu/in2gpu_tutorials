@@ -93,6 +93,7 @@ void Shader_Manager::CreateProgram(const std::string& shaderName, const std::str
 		std::vector<char> program_log(info_log_length);
 		glGetProgramInfoLog(program, info_log_length, NULL, &program_log[0]);
 		std::cout << "Shader Loader : LINK ERROR" << std::endl << &program_log[0] << std::endl;
+
 		return;
 	}
 
@@ -101,7 +102,9 @@ void Shader_Manager::CreateProgram(const std::string& shaderName, const std::str
 
 const GLuint Shader_Manager::GetShader(const std::string& shaderName)
 {
-
+	if (programs[shaderName])
 	return programs.at(shaderName);
+	return 0;
+
 
 }

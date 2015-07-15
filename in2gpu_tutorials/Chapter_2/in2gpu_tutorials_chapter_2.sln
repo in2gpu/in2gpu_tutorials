@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c2_1_DrawCube", "c2_1_DrawC
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c2_2_DrawCubeIndex", "c2_2_DrawCubeIndex\c2_2_DrawCubeIndex.vcxproj", "{D07100B2-B5F9-4A45-8027-A3450218ABFB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c2_3_DrawCubeTexture", "c2_3_DrawCubeTexture\c2_3_DrawCubeTexture.vcxproj", "{2E69C031-E2AD-4192-BC99-E1843EAA8770}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -37,6 +39,12 @@ Global
 		{D07100B2-B5F9-4A45-8027-A3450218ABFB}.Release|Win32.ActiveCfg = Release|Win32
 		{D07100B2-B5F9-4A45-8027-A3450218ABFB}.Release|Win32.Build.0 = Release|Win32
 		{D07100B2-B5F9-4A45-8027-A3450218ABFB}.Release|x64.ActiveCfg = Release|Win32
+		{2E69C031-E2AD-4192-BC99-E1843EAA8770}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2E69C031-E2AD-4192-BC99-E1843EAA8770}.Debug|Win32.Build.0 = Debug|Win32
+		{2E69C031-E2AD-4192-BC99-E1843EAA8770}.Debug|x64.ActiveCfg = Debug|Win32
+		{2E69C031-E2AD-4192-BC99-E1843EAA8770}.Release|Win32.ActiveCfg = Release|Win32
+		{2E69C031-E2AD-4192-BC99-E1843EAA8770}.Release|Win32.Build.0 = Release|Win32
+		{2E69C031-E2AD-4192-BC99-E1843EAA8770}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

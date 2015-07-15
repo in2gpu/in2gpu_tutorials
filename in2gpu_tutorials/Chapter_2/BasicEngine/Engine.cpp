@@ -26,6 +26,8 @@ bool Engine::Init()
 									"..\\BasicEngine\\Shaders\\Vertex_Shader.glsl",
 									"..\\BasicEngine\\Shaders\\Fragment_Shader.glsl");
 
+	m_texture_loader = new TextureLoader();
+
 	if (m_scene_manager && m_shader_manager)
 	{
 		m_models_manager = new Managers::Models_Manager();
@@ -60,6 +62,10 @@ Managers::Models_Manager* Engine::GetModels_Manager() const
 {
 	return m_models_manager;
 }
+TextureLoader* Engine::GetTexture_Loader() const
+{
+	return m_texture_loader;
+}
 
 Engine::~Engine()
 {
@@ -71,4 +77,7 @@ Engine::~Engine()
 
 	if (m_models_manager)
 		delete m_models_manager;
+
+	if (m_texture_loader)
+		delete m_texture_loader;
 }
