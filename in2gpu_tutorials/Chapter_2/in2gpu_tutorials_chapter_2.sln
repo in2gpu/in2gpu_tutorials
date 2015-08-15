@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c2_4_DrawCubeTextureAdvance
 		{029F83DE-F573-44EA-BF3F-B4805EEE6335} = {029F83DE-F573-44EA-BF3F-B4805EEE6335}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c2_4_Multitexturing", "c2_4_Multitexturing\c2_4_Multitexturing.vcxproj", "{D4D59423-2705-4DA3-A3C3-E9C4087FFEC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -65,6 +67,12 @@ Global
 		{BC9F4D7D-F850-44A2-9420-5B7749C414CB}.Release|Win32.ActiveCfg = Release|Win32
 		{BC9F4D7D-F850-44A2-9420-5B7749C414CB}.Release|Win32.Build.0 = Release|Win32
 		{BC9F4D7D-F850-44A2-9420-5B7749C414CB}.Release|x64.ActiveCfg = Release|Win32
+		{D4D59423-2705-4DA3-A3C3-E9C4087FFEC7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D4D59423-2705-4DA3-A3C3-E9C4087FFEC7}.Debug|Win32.Build.0 = Debug|Win32
+		{D4D59423-2705-4DA3-A3C3-E9C4087FFEC7}.Debug|x64.ActiveCfg = Debug|Win32
+		{D4D59423-2705-4DA3-A3C3-E9C4087FFEC7}.Release|Win32.ActiveCfg = Release|Win32
+		{D4D59423-2705-4DA3-A3C3-E9C4087FFEC7}.Release|Win32.Build.0 = Release|Win32
+		{D4D59423-2705-4DA3-A3C3-E9C4087FFEC7}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
