@@ -1,11 +1,11 @@
 #pragma once
 #include <BasicEngine\Engine.h>
 #include "CubeTextureAdvanced.h"
-#include "..\..\Chapter_2\Dependencies\include\soil\SOIL.h"
+#include "soil\SOIL.h"							//new
 
 using namespace BasicEngine;
-int main(int argc, char **argv)
-{
+
+int main(int argc, char **argv) {
 	Engine* engine = new Engine();
 	engine->Init();
 
@@ -15,17 +15,16 @@ int main(int argc, char **argv)
 
 	CubeTextureAdvanced* cube = new CubeTextureAdvanced();
 	int program = engine->GetShader_Manager()->GetShader("cubeShader");
-	if (program != 0)
-	{
+	if (program != 0) {
 		cube->SetProgram(program);
 		cube->Create();
 	}
-	else
-	{
+	else {
 		std::cout << "invalid program...";
 		std::cin.get();
 	}
 
+	//new
 	cube->SetTexture("Create", SOIL_load_OGL_texture("Textures\\Crate.bmp", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS));
 	engine->GetModels_Manager()->SetModel("cube", cube);
 
