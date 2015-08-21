@@ -26,6 +26,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c2_4_DrawCubeTextureAdvance
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c2_4_Multitexturing", "c2_4_Multitexturing\c2_4_Multitexturing.vcxproj", "{D4D59423-2705-4DA3-A3C3-E9C4087FFEC7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{029F83DE-F573-44EA-BF3F-B4805EEE6335} = {029F83DE-F573-44EA-BF3F-B4805EEE6335}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
