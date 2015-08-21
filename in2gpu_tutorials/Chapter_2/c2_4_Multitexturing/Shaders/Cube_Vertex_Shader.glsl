@@ -9,9 +9,6 @@ out vec2 texcoord;
 
 void main()
 {
-
 	texcoord = in_texture;
-
 	gl_Position = projection_matrix * view_matrix * vec4(in_position, 1);
-	
 }

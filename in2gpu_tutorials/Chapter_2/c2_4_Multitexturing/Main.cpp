@@ -1,7 +1,7 @@
 #pragma once
 #include <BasicEngine\Engine.h>
 #include "Multitexturing.h"
-#include "soil\SOIL.h"							//new
+#include "soil\SOIL.h"							
 
 using namespace BasicEngine;
 
@@ -17,14 +17,14 @@ int main(int argc, char **argv) {
 	int program = engine->GetShader_Manager()->GetShader("cubeShader");
 	if (program != 0) {
 		multitexSphere->SetProgram(program);
-		multitexSphere->CreateSphere(2, 24, 48);
+		multitexSphere->CreateSphere(2, 24, 48);	//generate sphere geometry and bind ibo, vbo buffers.
 	}
 	else {
 		std::cout << "invalid program...";
 		std::cin.get();
 	}
 
-	//new
+	// Make sure SOIL_FLAG is set to repeat since we will be "scrolling" the UV coordinates 
 	multitexSphere->SetTexture("BaseTexture", SOIL_load_OGL_texture("Textures\\nebula1.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_TEXTURE_REPEATS));
 	multitexSphere->SetTexture("SecondTexture", SOIL_load_OGL_texture("Textures\\nebula2.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_TEXTURE_REPEATS));
 	multitexSphere->SetTexture("AlphaChanTexture", SOIL_load_OGL_texture("Textures\\alphaChan.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_TEXTURE_REPEATS));

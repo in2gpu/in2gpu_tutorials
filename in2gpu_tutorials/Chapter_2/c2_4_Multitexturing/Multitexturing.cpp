@@ -153,9 +153,10 @@ void Multitexturing::Draw(const glm::mat4& projection_matrix, const glm::mat4& v
 	glUniformMatrix4fv(glGetUniformLocation(program, "view_matrix"), 1, false, &view_matrix[0][0]);
 	glUniformMatrix4fv(glGetUniformLocation(program, "projection_matrix"), 1, false, &projection_matrix[0][0]);
 	
-	glCullFace(GL_BACK);
+	// Need to draw twice since the textures are scrolling and we do not wish for the back of the texture to be drawn over the front (depth!!!)
+	glCullFace(GL_BACK); // draw back face 
 	glDrawElements(GL_QUADS, indicesSize, GL_UNSIGNED_SHORT, 0);
 
-	glCullFace(GL_FRONT);
+	glCullFace(GL_FRONT); // draw front face
 	glDrawElements(GL_QUADS, indicesSize, GL_UNSIGNED_SHORT, 0);
 }

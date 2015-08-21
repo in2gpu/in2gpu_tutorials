@@ -21,7 +21,7 @@ void main()
 
 	baseColour.a = 0.8;
 	secondColour.a = 0.6;
-	rampColour.a = 0.75;
+	rampColour.a = 0.6;
 
 	// combine ramp scrolling up with base texture such that the white value in the ramp is diminished
 	vec4 blendedBaseRamp = baseColour - rampColour;
