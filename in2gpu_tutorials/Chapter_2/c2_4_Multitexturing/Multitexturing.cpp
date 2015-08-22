@@ -135,14 +135,19 @@ void Multitexturing::Draw(const glm::mat4& projection_matrix, const glm::mat4& v
 	glUniform1i(secondTextureLocation, 1);
 
 	glActiveTexture(GL_TEXTURE2);
-	glBindTexture(GL_TEXTURE_2D, this->GetTexture("AlphaChanTexture"));
-	unsigned int alphaChanTextureLocation = glGetUniformLocation(program, "texture3");
-	glUniform1i(alphaChanTextureLocation, 2);
+	glBindTexture(GL_TEXTURE_2D, this->GetTexture("ThirdTexture"));
+	unsigned int thirdTextureLocation = glGetUniformLocation(program, "texture3");
+	glUniform1i(thirdTextureLocation, 2);
 
 	glActiveTexture(GL_TEXTURE3);
+	glBindTexture(GL_TEXTURE_2D, this->GetTexture("AlphaChanTexture"));
+	unsigned int alphaChanTextureLocation = glGetUniformLocation(program, "texture4");
+	glUniform1i(alphaChanTextureLocation, 3);
+
+	glActiveTexture(GL_TEXTURE4);
 	glBindTexture(GL_TEXTURE_2D, this->GetTexture("RampTexture"));
-	unsigned int rampTextureLocation = glGetUniformLocation(program, "texture4");
-	glUniform1i(rampTextureLocation, 3);
+	unsigned int rampTextureLocation = glGetUniformLocation(program, "texture5");
+	glUniform1i(rampTextureLocation, 4);
 	
 	auto      endTime = HiResTime::now();
 	DeltaTime dt      = endTime - startTime; //in seconds

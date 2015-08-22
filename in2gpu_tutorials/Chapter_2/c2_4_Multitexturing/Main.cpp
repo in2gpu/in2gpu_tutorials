@@ -27,6 +27,7 @@ int main(int argc, char **argv) {
 	// Make sure SOIL_FLAG is set to repeat since we will be "scrolling" the UV coordinates 
 	multitexSphere->SetTexture("BaseTexture", SOIL_load_OGL_texture("Textures\\nebula1.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_TEXTURE_REPEATS));
 	multitexSphere->SetTexture("SecondTexture", SOIL_load_OGL_texture("Textures\\nebula2.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_TEXTURE_REPEATS));
+	multitexSphere->SetTexture("ThirdTexture", SOIL_load_OGL_texture("Textures\\nebula3.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_TEXTURE_REPEATS));
 	multitexSphere->SetTexture("AlphaChanTexture", SOIL_load_OGL_texture("Textures\\alphaChan.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_TEXTURE_REPEATS));
 	multitexSphere->SetTexture("RampTexture", SOIL_load_OGL_texture("Textures\\ramp.png", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_TEXTURE_REPEATS));
 
