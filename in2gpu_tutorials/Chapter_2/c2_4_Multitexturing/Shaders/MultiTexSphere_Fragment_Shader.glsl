@@ -14,24 +14,18 @@ in vec2 texcoord;
 void main() {
 	float offset = Timer * 0.0001;
 	
-	vec4 baseColour   = texture( nebulaTex1, vec2(texcoord.x + offset, texcoord.y));
-	vec4 secondColour = texture( nebulaTex2,   vec2(texcoord.x, texcoord.y - offset));
-	vec4 thirdColour  = texture( nebulaTex3,   vec2(texcoord.x, texcoord.y - offset));
-	vec4 aChanColour  = texture( alphaChanTex, vec2(texcoord.x, texcoord.y - offset));
-	vec4 rampColour   = texture( rampTex,      vec2(texcoord.x, texcoord.y - offset)); 
+	vec4 firstColour  = texture (nebulaTex3,   vec2(texcoord.x + offset * 0.5, texcoord.y) * 1.8);
+	vec4 secondColour = texture (nebulaTex1,   vec2(texcoord.x, texcoord.y - offset) * 1.5);
+	vec4 thirdColour  = texture (nebulaTex2,   vec2(texcoord.x, texcoord.y - offset));
+	
+	vec4 aChanColour  = texture (alphaChanTex, vec2(texcoord.x, texcoord.y - offset));
+	vec4 rampColour   = texture (rampTex,      vec2(texcoord.x, texcoord.y - offset) * 1.75); 
 
-	baseColour.a = 0.9;
-	rampColour.a = 0.6;
+	// Use the greyscale value of the aChanColour as the alpha of the thirdColour.
+	// This will basically set the alpha of the bright particles to a high value, and the rest to a low value
+	// Hence isolating the particles from the rest of the texture values.
+	
+	vec4 particleColour = vec4(thirdColour.r, thirdColour.g, thirdColour.b, aChanColour.r);
 
-	// combine ramp scrolling up with base texture such that the white value in the ramp is diminished
-	vec4 blendedBaseRamp = baseColour - rampColour;
-
-	// select only the particles from the second texture. Do this by setting the fragment's alpha to the value of the alphaChan texture
-	vec4 particleColour = vec4(thirdColour.r, thirdColour.g, thirdColour.b, aChanColour.rgb);
-
-	vec4 blendedOne   = texture(nebulaTex3, vec2(texcoord.x + offset * 0.5, texcoord.y) * 1.8);
-	vec4 blendedTwo   = texture(nebulaTex1, vec2(texcoord.x, texcoord.y - offset) * 1.5);
-	vec4 blendedThree = particleColour;//texture(texture3, vec2(texcoord.x + offset * 0.05, texcoord.y - offset * 0.05) * 2);
-
-	out_color = (blendedOne * blendedTwo * 2) * blendedThree * 2;
+	out_color = (firstColour * secondColour * 2) * particleColour * 2 * rampColour;	
 }
