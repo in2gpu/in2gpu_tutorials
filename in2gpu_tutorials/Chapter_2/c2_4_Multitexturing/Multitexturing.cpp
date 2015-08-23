@@ -23,7 +23,6 @@ void Multitexturing::CreateSphere(float radius, unsigned int rings, unsigned int
 
 	// Generate a sphere
 	std::vector<GLfloat> vertices;
-	std::vector<GLfloat> normals;
 	std::vector<GLfloat> texcoords;
 	std::vector<GLushort> indices;
 
@@ -32,11 +31,9 @@ void Multitexturing::CreateSphere(float radius, unsigned int rings, unsigned int
 	int r, s;
 
 	vertices.resize(rings * sectors * 3);
-	//normals.resize(rings * sectors * 3);
 	texcoords.resize(rings * sectors * 2);
 
 	std::vector<GLfloat>::iterator v = vertices.begin();
-	//std::vector<GLfloat>::iterator n = normals.begin();
 	std::vector<GLfloat>::iterator t = texcoords.begin();
 
 	// Calculate vertices' position and their respective texture coordinates 
@@ -52,10 +49,6 @@ void Multitexturing::CreateSphere(float radius, unsigned int rings, unsigned int
 			*v++ = x * radius;
 			*v++ = y * radius;
 			*v++ = z * radius;
-
-			//*n++ = -x;
-			//*n++ = -y;
-			//*n++ = -z;
 		}
 	}
 
@@ -72,7 +65,7 @@ void Multitexturing::CreateSphere(float radius, unsigned int rings, unsigned int
 		}
 	}
 
-	// Use Sergiu's & Vlad's approach for storing everything in a VertexFormat(vec3 vertices, vex2 texCoords) & binding everything
+	// Use the previous tutorial approach for storing everything in a VertexFormat(vec3 vertices, vex2 texCoords)
 	GLuint vao, vbo, ibo;
 
 	glGenVertexArrays(1, &vao);
@@ -106,17 +99,9 @@ void Multitexturing::CreateSphere(float radius, unsigned int rings, unsigned int
 	this->vbos.push_back(vbo);
 	this->vbos.push_back(ibo);
 
-	m_RotationSpeed = glm::vec3(90.0, 90.0, 90.0);
-	m_Rotation = glm::vec3(0.0, 0.0, 0.0);
-	indicesSize = indices.size();
+	indicesSize = indices.size();		// index size must be passed to the glDrawElements() later on
 
-	startTime = HiResTime::now();
-}
-
-void Multitexturing::Update()
-{
-	m_Rotation = 0.01f * m_RotationSpeed + m_Rotation;
-	m_RotationSin = glm::vec3(m_Rotation.x * PI / 180, m_Rotation.y * PI / 180, m_Rotation.z * PI / 180);
+	startTime = HiResTime::now();		// assume the app starts...now!
 }
 
 void Multitexturing::Draw(const glm::mat4& projection_matrix, const glm::mat4& view_matrix)
@@ -126,39 +111,39 @@ void Multitexturing::Draw(const glm::mat4& projection_matrix, const glm::mat4& v
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, this->GetTexture("BaseTexture"));
-	unsigned int textureLocation = glGetUniformLocation(program, "texture1");
+	unsigned int textureLocation = glGetUniformLocation(program, "nebulaTex1");
 	glUniform1i(textureLocation, 0);
 
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, this->GetTexture("SecondTexture"));
-	unsigned int secondTextureLocation = glGetUniformLocation(program, "texture2");
+	unsigned int secondTextureLocation = glGetUniformLocation(program, "nebulaTex2");
 	glUniform1i(secondTextureLocation, 1);
 
 	glActiveTexture(GL_TEXTURE2);
 	glBindTexture(GL_TEXTURE_2D, this->GetTexture("ThirdTexture"));
-	unsigned int thirdTextureLocation = glGetUniformLocation(program, "texture3");
+	unsigned int thirdTextureLocation = glGetUniformLocation(program, "nebulaTex3");
 	glUniform1i(thirdTextureLocation, 2);
 
 	glActiveTexture(GL_TEXTURE3);
 	glBindTexture(GL_TEXTURE_2D, this->GetTexture("AlphaChanTexture"));
-	unsigned int alphaChanTextureLocation = glGetUniformLocation(program, "texture4");
+	unsigned int alphaChanTextureLocation = glGetUniformLocation(program, "alphaChanTex");
 	glUniform1i(alphaChanTextureLocation, 3);
 
 	glActiveTexture(GL_TEXTURE4);
 	glBindTexture(GL_TEXTURE_2D, this->GetTexture("RampTexture"));
-	unsigned int rampTextureLocation = glGetUniformLocation(program, "texture5");
+	unsigned int rampTextureLocation = glGetUniformLocation(program, "rampTex");
 	glUniform1i(rampTextureLocation, 4);
 	
-	auto      endTime = HiResTime::now();
-	DeltaTime dt      = endTime - startTime; //in seconds
-	MiliSec   dtMS = std::chrono::duration_cast<MiliSec>(dt); //in ms
-	glUniform1f(glGetUniformLocation(program, "Timer"), dtMS.count());
-
-	glUniform3f(glGetUniformLocation(program, "rotation"), m_RotationSin.x, m_RotationSin.y, m_RotationSin.z);
+	auto      endTime = HiResTime::now();								// get current time
+	DeltaTime dt      = endTime - startTime;							// calculate total ellapsed time since app started
+	MiliSec   dtMS = std::chrono::duration_cast<MiliSec>(dt);			// convert it to some civilised format :)
+	glUniform1f(glGetUniformLocation(program, "Timer"), dtMS.count());	// tuck it in a uniform and pass it on to the shader
 	glUniformMatrix4fv(glGetUniformLocation(program, "view_matrix"), 1, false, &view_matrix[0][0]);
 	glUniformMatrix4fv(glGetUniformLocation(program, "projection_matrix"), 1, false, &projection_matrix[0][0]);
 	
-	// Need to draw twice since the textures are scrolling and we do not wish for the back of the texture to be drawn over the front (depth!!!)
+	// Need to draw the object twice since the textures are scrolling and 
+	// We do not wish for the back of the texture to be drawn over the front
+	// At this point make sure GL_BLEND, GL_CULL_FACE, and GL_DEPTH_TEST are enabled inside the SceneManager.
 	glCullFace(GL_BACK); // draw back face 
 	glDrawElements(GL_QUADS, indicesSize, GL_UNSIGNED_SHORT, 0);
 
