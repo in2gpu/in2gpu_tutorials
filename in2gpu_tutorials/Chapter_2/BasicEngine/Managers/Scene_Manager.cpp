@@ -29,7 +29,7 @@ void Scene_Manager::NotifyDisplayFrame()
 {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0.2, 0.2, 0.2, 1.0);
+	glClearColor(0.0, 0.0, 0.0, 1.0);
 
 	glEnable(GL_BLEND);											// added for multitexturing tutorial
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);    

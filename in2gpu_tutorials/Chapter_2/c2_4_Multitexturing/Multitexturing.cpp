@@ -70,7 +70,8 @@ void Multitexturing::CreateSphere(float radius, unsigned int rings, unsigned int
 	int count = 0;
 	for (int verts = 0; verts < vertices.size(); verts += 3) {
 		for (int tex = count; tex < texcoords.size(); tex += 2) {
-			vertexData.push_back(VertexFormat(glm::vec3(vertices[verts], vertices[verts + 1], vertices[verts + 2]), glm::vec2(texcoords[tex], texcoords[tex + 1])));
+			vertexData.push_back(VertexFormat(glm::vec3(vertices[verts], vertices[verts + 1], vertices[verts + 2]), 
+				                              glm::vec2(texcoords[tex], texcoords[tex + 1])));
 			count += 2;
 			break;
 		}
@@ -130,7 +131,7 @@ void Multitexturing::Draw(const glm::mat4& projection_matrix, const glm::mat4& v
 	
 	auto      endTime = HiResTime::now();								// get current time
 	DeltaTime dt      = endTime - startTime;							// calculate total elapsed time since app started
-	MiliSec   dtMS    = std::chrono::duration_cast<MiliSec>(dt);		// convert it to some civilised format :)
+	MiliSec   dtMS    = std::chrono::duration_cast<MiliSec>(dt);		
 	glUniform1f(glGetUniformLocation(program, "Timer"), dtMS.count());	// tuck it in a uniform and pass it on to the shader
 	glUniformMatrix4fv(glGetUniformLocation(program, "view_matrix"), 1, false, &view_matrix[0][0]);
 	glUniformMatrix4fv(glGetUniformLocation(program, "projection_matrix"), 1, false, &projection_matrix[0][0]);
@@ -138,6 +139,7 @@ void Multitexturing::Draw(const glm::mat4& projection_matrix, const glm::mat4& v
 	// Need to draw the object twice since the textures are scrolling and 
 	// We do not wish to see overlapping geometry (due to the blend equation)
 	// At this point make sure GL_BLEND, GL_CULL_FACE, and GL_DEPTH_TEST are enabled inside the SceneManager.
+
 	glCullFace(GL_BACK); // draw back face 
 	glDrawElements(GL_QUADS, indicesSize, GL_UNSIGNED_SHORT, 0);
 
