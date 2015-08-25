@@ -52,8 +52,8 @@ void Multitexturing::CreateSphere(float radius, unsigned int rings, unsigned int
 	for (countRings = 0; countRings < rings - 1; countRings++) {
 		for (countSectors = 0; countSectors < sectors - 1; countSectors++) {
 			
-			*i++ = countRings * sectors + countSectors;
-			*i++ = countRings * sectors + (countSectors + 1);
+			*i++ = (countRings + 0) * sectors + countSectors;				// added for half-symmetry
+			*i++ = (countRings + 0) * sectors + (countSectors + 1);
 			*i++ = (countRings + 1) * sectors + (countSectors + 1);
 			*i++ = (countRings + 1) * sectors + countSectors;
 		}
