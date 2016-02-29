@@ -14,7 +14,8 @@ Urgent:
 	o Current GLEW32 version: 1.13.0; (up-to-date)
 
 
-3) Make sure the repo has an up-to-date version of dlls & libs for both 32/64 and Debug/Release;
+* Make sure the repo has an up-to-date version of dlls & libs for both 32/64 and Debug/Release (Done)
+	o Added GLEW and FreeGLUT x64 files, and Release files.
 
 4) chrono "auto" creates ambiguity, rewrite in less ambiguous way (Multitexturing);
 
