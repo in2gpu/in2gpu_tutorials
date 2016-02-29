@@ -1,0 +1,19 @@
+1. First build output:
+1>------ Build started: Project: BasicEngine, Configuration: Debug Win32 ------
+1>  TextureLoader.cpp
+1>  Triangle.cpp
+1>  Quad.cpp
+1>  Model.cpp
+1>  Shader_Manager.cpp
+1>  Scene_Manager.cpp
+1>  Models_Manager.cpp
+1>  Init_GLUT.cpp
+1>  Init_GLEW.cpp
+1>  Engine.cpp
+1>  Generating Code...
+1>freeglut.lib(freeglut.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
+1>freeglut.lib(freeglut.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+1>glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in opengl32.lib(OPENGL32.dll); second definition ignored
+1>glew32.lib(glew32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+1>  BasicEngine.vcxproj -> D:\WORK\ForkedRepos\0_In2GPU\Branch_2016_Maintenance\in2gpu_tutorials\in2gpu_tutorials\Chapter_2\Debug\BasicEngine.lib
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
