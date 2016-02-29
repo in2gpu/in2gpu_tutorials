@@ -1,34 +1,35 @@
 Urgent:
-
-
-
-* Rebuild freeglut, replace old dll (Done)
+=============================================================================
+* Rebuild freeglut, replace old dll (DONE)
 	o Used CMake VS2013 compiler to generate 32 build;
 	o Build freeglut.sln with VS 2015 Enterprise Debug 32;
 	o Added freeglut.dll to Debug folder, freeglutd.lib and freeglut_staticd.lib to Dependencies;
 	o Include folder remained unchanged;
 	o Current freeglut version: 3.0.0; (up-to-date)
 
-* Rebuild glew, replace old dll (Done)
+* Rebuild glew, replace old dll (DONE)
 	o Modified BasicEngine Init current context core to true. Reason for this being I want everything we have to run in core 4.5 if possible.
 	o Current GLEW32 version: 1.13.0; (up-to-date)
 
 
-* Make sure the repo has an up-to-date version of dlls & libs for both 32/64 and Debug/Release (Done)
+* Make sure the repo has an up-to-date version of dlls & libs for both 32/64 and Debug/Release (DONE)
 	o Added GLEW and FreeGLUT x64 files, and Release files.
 
 4) chrono "auto" creates ambiguity, rewrite in less ambiguous way (Multitexturing);
 
-5) For some reason DrawCubeTexture tutorial complains about SOIL link even though this tutorial should not rely at all on SOIL. 
+* DrawCubeTexture tutorial SOIL link error even though this tutorial should not rely at all on SOIL (DONE)
+ 	o Removed unnecessary calls to SOIL.
 
-6) Fetch latest compatible version of SOIL that is maintained and up-to-date with OpenGL core 4.5;
+* Fetch latest compatible version of SOIL (if any) or REPLACE IT WITH Nothings/STB (CURRENTLY IN PROGRESS)
+	o Used STB from https://github.com/nothings/stb; 	(Done)
+	o Make sure STB works with DrawCubeTexture tutorial;	(Currently in progress)
+	o Make sure STB works with Multitexturing  tutorial;	(Currently in progress)
 
 7) (New)1_DrawCube winding is wrong. The outputted cube has triangle faces not being drawn. 
 
 
 Other:
-
-
+=============================================================================
 1) Add correct pragma includes in order to get rid of BasicEngine build warnings;
 2) Make sure all classes and file names in BasicEngine follow same naming standard (i.e. "vertexFormat" should be "vertex_format");
 3) Get rid of deprecated old OpenGL functionality such as GL_QUADS, it's embarrassing! 
