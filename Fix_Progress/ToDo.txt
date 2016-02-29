@@ -1,0 +1,14 @@
+Urgent:
+
+1) Rebuild freeglut, replace old dll;
+2) Rebuild glew, replace old dll;
+3) Make sure the repo has an up-to-date version of dlls & libs for both 32/64 and Debug/Release;
+4) chrono "auto" creates ambiguity, rewrite in less ambiguous way (Multitexturing);
+5) For some reason DrawCubeTexture tutorial complains about SOIL link even though this tutorial should not rely at all on SOIL. 
+6) Fetch latest compatible version of SOIL that is maintaned and up-to-date with OpenGL core 4.5;
+
+Other:
+1) Add correct pragma includes in order to get rid of BasicEngine build warnings;
+2) Make sure all classes and file names in BasicEngine follow same naming standard (i.e. "vertexFormat" should be "vertex_format");
+3) Get rid of deprecated old OpenGL functionality such as GL_QUADS, it's embarassing! 
+4) Rewrite shaders so they are up to date with latest standard. (Note for future self: keep the shader code consistent across the project).

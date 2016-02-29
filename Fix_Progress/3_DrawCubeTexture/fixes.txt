@@ -1,0 +1,8 @@
+1>------ Build started: Project: c2_3_DrawCubeTexture, Configuration: Debug Win32 ------
+1>  main.cpp
+1>  CubeTexture.cpp
+1>  Generating Code...
+1>LINK : fatal error LNK1104: cannot open file 'libSOIL.lib'
+========== Build: 0 succeeded, 1 failed, 1 up-to-date, 0 skipped ==========
+
+

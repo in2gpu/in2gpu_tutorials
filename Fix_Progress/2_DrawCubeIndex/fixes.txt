@@ -31,4 +31,4 @@ glew32.dll   missing
 The thread 0x237c has exited with code -1073741515 (0xc0000135).
 The thread 0x16c8 has exited with code -1073741515 (0xc0000135).
 The thread 0xf0 has exited with code -1073741515 (0xc0000135).
-The program '[9092] c2_1_DrawCube.exe' has exited with code -1073741515 (0xc0000135) 'A dependent dll was not found'.
+The program '[9092] c2_2_DrawCubeIndex.exe' has exited with code -1073741515 (0xc0000135) 'A dependent dll was not found'.
