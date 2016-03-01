@@ -15,7 +15,8 @@ Urgent:
 * Make sure the repo has an up-to-date version of dlls & libs for both 32/64 and Debug/Release (DONE)
 	o Added GLEW and FreeGLUT x64 files, and Release files.
 
-4) chrono "auto" creates ambiguity, rewrite in less ambiguous way (Multitexturing);
+* chrono "auto" creates ambiguity, rewrite in less ambiguous way (Multitexturing) (DONE)
+	o converted chrono system clock to chrono steady clock throughout the project.
 
 * DrawCubeTexture tutorial SOIL link error even though this tutorial should not rely at all on SOIL (DONE)
  	o Removed unnecessary calls to SOIL.
@@ -32,6 +33,9 @@ Other:
 =============================================================================
 1) Add correct pragma includes in order to get rid of BasicEngine build warnings;
 2) Make sure all classes and file names in BasicEngine follow same naming standard (i.e. "vertexFormat" should be "vertex_format");
-3) Get rid of deprecated old OpenGL functionality such as GL_QUADS, it's embarrassing! 
+
+* Get rid of deprecated old OpenGL functionality such as GL_QUADS, it's embarrassing! (DONE)
+	o Multitexturing tutorial now uses GL_TRIANGLES instead of GL_QUADS
+
 4) Rewrite shaders so they are up to date with latest standard. (Note for future self: keep the shader code consistent across the project).
 5) Use pre-processor definition for GLEW_STATIC, etc. instead of specifying linker input per test project.

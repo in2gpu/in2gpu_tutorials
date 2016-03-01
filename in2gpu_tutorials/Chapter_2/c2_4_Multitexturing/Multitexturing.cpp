@@ -4,7 +4,7 @@ using namespace BasicEngine::Rendering;
 
 const float PI = 3.1415927;
 int indicesSize;
-std::chrono::time_point<std::chrono::system_clock> startTime;
+std::chrono::time_point<std::chrono::steady_clock> startTime;
 
 Multitexturing::Multitexturing() {
 
@@ -47,7 +47,7 @@ void Multitexturing::CreateSphere(float radius, unsigned int rings, unsigned int
 	}
 
 	// Calculate indices 
-	indices.resize(rings * sectors * 4);
+	indices.resize(rings * sectors * 6);
 	std::vector<GLushort>::iterator i = indices.begin();
 	for (countRings = 0; countRings < rings - 1; countRings++) {
 		for (countSectors = 0; countSectors < sectors - 1; countSectors++) {
@@ -55,7 +55,9 @@ void Multitexturing::CreateSphere(float radius, unsigned int rings, unsigned int
 			*i++ = (countRings + 0) * sectors + countSectors;				// added for half-symmetry
 			*i++ = (countRings + 0) * sectors + (countSectors + 1);
 			*i++ = (countRings + 1) * sectors + (countSectors + 1);
+			*i++ = (countRings + 0) * sectors + countSectors;
 			*i++ = (countRings + 1) * sectors + countSectors;
+			*i++ = (countRings + 1) * sectors + (countSectors + 1);
 		}
 	}
 
@@ -141,8 +143,8 @@ void Multitexturing::Draw(const glm::mat4& projection_matrix, const glm::mat4& v
 	// At this point make sure GL_BLEND, GL_CULL_FACE, and GL_DEPTH_TEST are enabled inside the SceneManager.
 
 	glCullFace(GL_BACK); // draw back face 
-	glDrawElements(GL_QUADS, indicesSize, GL_UNSIGNED_SHORT, 0);
+	glDrawElements(GL_TRIANGLES, indicesSize, GL_UNSIGNED_SHORT, 0);
 
 	glCullFace(GL_FRONT); // draw front face
-	glDrawElements(GL_QUADS, indicesSize, GL_UNSIGNED_SHORT, 0);
+	glDrawElements(GL_TRIANGLES, indicesSize, GL_UNSIGNED_SHORT, 0);
 }
