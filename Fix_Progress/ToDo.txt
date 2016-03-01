@@ -15,7 +15,7 @@ Urgent:
 * Make sure the repo has an up-to-date version of dlls & libs for both 32/64 and Debug/Release (DONE)
 	o Added GLEW and FreeGLUT x64 files, and Release files.
 
-* chrono "auto" creates ambiguity, rewrite in less ambiguous way (Multitexturing) (DONE)
+* chrono broken in Multitexturing, rewrite in less ambiguous way (DONE)
 	o converted chrono system clock to chrono steady clock throughout the project.
 
 * DrawCubeTexture tutorial SOIL link error even though this tutorial should not rely at all on SOIL (DONE)
@@ -25,17 +25,16 @@ Urgent:
 	o Make all tutorials work with SOIL(old and not fully compatible with 4.5 core)	(Done)
 	o Used STB from https://github.com/nothings/stb instead of SOIL 	        (In progress)
 
-
-7) (New)1_DrawCube winding is wrong. The outputted cube has triangle faces not being drawn. 
-
+* 1_DrawCube is weird. Possible problem with culling inside BasicEngine (DONE)
+	o Disabled culling inside DrawCube tutorial.
 
 Other:
 =============================================================================
-1) Add correct pragma includes in order to get rid of BasicEngine build warnings;
-2) Make sure all classes and file names in BasicEngine follow same naming standard (i.e. "vertexFormat" should be "vertex_format");
+1) Make sure all classes and file names in BasicEngine follow same naming standard (i.e. "vertexFormat" should be "vertex_format");
 
 * Get rid of deprecated old OpenGL functionality such as GL_QUADS, it's embarrassing! (DONE)
 	o Multitexturing tutorial now uses GL_TRIANGLES instead of GL_QUADS
 
-4) Rewrite shaders so they are up to date with latest standard. (Note for future self: keep the shader code consistent across the project).
-5) Use pre-processor definition for GLEW_STATIC, etc. instead of specifying linker input per test project.
+3) Rewrite shaders so they are up to date with latest standard. (Note for future self: keep the shader code consistent across the project).
+
+4) Use pre-processor definition for GLEW_STATIC, etc. instead of specifying linker input per test project. Get rid of the BasicEngine warnings
