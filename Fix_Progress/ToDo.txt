@@ -21,9 +21,9 @@ Urgent:
  	o Removed unnecessary calls to SOIL.
 
 * Fetch latest compatible version of SOIL (if any) or REPLACE IT WITH Nothings/STB (CURRENTLY IN PROGRESS)
-	o Used STB from https://github.com/nothings/stb; 	(Done)
-	o Make sure STB works with DrawCubeTexture tutorial;	(Currently in progress)
-	o Make sure STB works with Multitexturing  tutorial;	(Currently in progress)
+	o Make all tutorials work with SOIL(old and not fully compatible with 4.5 core)	(Done)
+	o Used STB from https://github.com/nothings/stb instead of SOIL 	        (In progress)
+
 
 7) (New)1_DrawCube winding is wrong. The outputted cube has triangle faces not being drawn. 
 
