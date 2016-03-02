@@ -28,6 +28,8 @@ int main(int argc, char **argv) {
 	cube->SetTexture("Create", SOIL_load_OGL_texture("Textures\\Crate.bmp", SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS));
 	engine->GetModels_Manager()->SetModel("cube", cube);
 
+	glDisable(GL_CULL_FACE);
+
 	engine->Run();
 
 	delete engine;
