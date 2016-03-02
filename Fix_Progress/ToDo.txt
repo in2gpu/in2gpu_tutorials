@@ -1,32 +1,43 @@
 Urgent:
 =============================================================================
-* Rebuild freeglut, replace old dll (DONE)
+* Rebuild freeglut, replace old dll (FIXED)
 	o Used CMake VS2013 compiler to generate 32 build;
 	o Build freeglut.sln with VS 2015 Enterprise Debug 32;
 	o Added freeglut.dll to Debug folder, freeglutd.lib and freeglut_staticd.lib to Dependencies;
 	o Include folder remained unchanged;
 	o Current freeglut version: 3.0.0; (up-to-date)
 
-* Rebuild glew, replace old dll (DONE)
+* Rebuild glew, replace old dll (FIXED)
 	o Modified BasicEngine Init current context core to true. Reason for this being I want everything we have to run in core 4.5 if possible.
 	o Current GLEW32 version: 1.13.0; (up-to-date)
 
 
-* Make sure the repo has an up-to-date version of dlls & libs for both 32/64 and Debug/Release (DONE)
+* Make sure the repo has an up-to-date version of dlls & libs for both 32/64 and Debug/Release (FIXED)
 	o Added GLEW and FreeGLUT x64 files, and Release files.
 
-* chrono broken in Multitexturing, rewrite in less ambiguous way (DONE)
+* chrono broken in Multitexturing, rewrite in less ambiguous way (FIXED)
 	o converted chrono system clock to chrono steady clock throughout the project.
 
-* DrawCubeTexture tutorial SOIL link error even though this tutorial should not rely at all on SOIL (DONE)
+* DrawCubeTexture tutorial SOIL link error even though this tutorial should not rely at all on SOIL (FIXED)
  	o Removed unnecessary calls to SOIL.
 
 * Fetch latest compatible version of SOIL (if any) or REPLACE IT WITH Nothings/STB (CURRENTLY IN PROGRESS)
-	o Make all tutorials work with SOIL(old and not fully compatible with 4.5 core)	(Done)
+	o Make all tutorials work with SOIL(old and not fully compatible with 4.5 core)	(FIXED)
 	o Used STB from https://github.com/nothings/stb instead of SOIL 	        (In progress)
 
-* 1_DrawCube is weird. Possible problem with culling inside BasicEngine (DONE)
+* 1_DrawCube is weird. Possible problem with culling inside BasicEngine (FIXED)
 	o Disabled culling inside DrawCube tutorial.
+
+* 2_DrawCubeIndex had same problem as DrawCube (FIXED)
+	o Disabled culling inside DrawCubeIndex tutorial.
+
+* 3_DrawCubeTexture had same problem as DrawCube and triggers an invalid GL_ENUM incompatible with Core. This does not rely on soil (FIXED)
+	** glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAnisotropy); triggers the invalid GL_ENUM, not SOIL!!! 
+	o Fixed by removing deprecated function calls from TextureLoader: 
+	  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	   
+
 
 Other:
 =============================================================================

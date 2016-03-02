@@ -19,6 +19,8 @@ int main(int argc, char **argv)
 
 	engine->GetModels_Manager()->SetModel("cube", cube);
 
+	glDisable(GL_CULL_FACE);
+
 	engine->Run();
 
 	delete engine;
