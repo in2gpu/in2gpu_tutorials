@@ -21,9 +21,10 @@ Urgent:
 * DrawCubeTexture tutorial SOIL link error even though this tutorial should not rely at all on SOIL (FIXED)
  	o Removed unnecessary calls to SOIL.
 
-* Fetch latest compatible version of SOIL (if any) or REPLACE IT WITH Nothings/STB (CURRENTLY IN PROGRESS)
-	o Make all tutorials work with SOIL(old and not fully compatible with 4.5 core)	(FIXED)
-	o Used STB from https://github.com/nothings/stb instead of SOIL 	        (In progress)
+* Fetch latest compatible version of SOIL (if any) or REPLACE IT WITH Nothings/STB (FIXED)
+	o Make all tutorials work with SOIL(old and not fully compatible with 4.5 core)	
+	o Used STB from https://github.com/nothings/stb instead of SOIL OR SOIL2 from https://bitbucket.org/SpartanJ/soil2 
+	o Decided to use SOIL2 in conjuction with stb_image.h. Everything works with core profile, SOIL commands remain unchanged.
 
 * 1_DrawCube is weird. Possible problem with culling inside BasicEngine (FIXED)
 	o Disabled culling inside DrawCube tutorial.
@@ -32,12 +33,8 @@ Urgent:
 	o Disabled culling inside DrawCubeIndex tutorial.
 
 * 3_DrawCubeTexture had same problem as DrawCube and triggers an invalid GL_ENUM incompatible with Core. This does not rely on soil (FIXED)
-	** glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAnisotropy); triggers the invalid GL_ENUM, not SOIL!!! 
+	**  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR); triggers the invalid GL_ENUM, not SOIL!!! 
 	o Fixed by removing deprecated function calls from TextureLoader: 
-	  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	  glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	   
-
 
 Other:
 =============================================================================

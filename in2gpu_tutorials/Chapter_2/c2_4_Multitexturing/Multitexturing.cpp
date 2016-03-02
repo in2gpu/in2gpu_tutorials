@@ -47,7 +47,7 @@ void Multitexturing::CreateSphere(float radius, unsigned int rings, unsigned int
 	}
 
 	// Calculate indices 
-	indices.resize(rings * sectors * 6);
+	indices.resize(rings * sectors * 6);									// using GL_TRIANGLES with indices to draw, not GL_QUADS
 	std::vector<GLushort>::iterator i = indices.begin();
 	for (countRings = 0; countRings < rings - 1; countRings++) {
 		for (countSectors = 0; countSectors < sectors - 1; countSectors++) {
@@ -57,7 +57,7 @@ void Multitexturing::CreateSphere(float radius, unsigned int rings, unsigned int
 			*i++ = (countRings + 1) * sectors + (countSectors + 1);
 			*i++ = (countRings + 0) * sectors + countSectors;
 			*i++ = (countRings + 1) * sectors + countSectors;
-			*i++ = (countRings + 1) * sectors + (countSectors + 1);
+			*i++ = (countRings + 1) * sectors + (countSectors + 1);			// since we're using GL_TRIANGLE with indices to draw the mesh
 		}
 	}
 
@@ -131,7 +131,7 @@ void Multitexturing::Draw(const glm::mat4& projection_matrix, const glm::mat4& v
 	unsigned int rampTextureLocation = glGetUniformLocation(program, "rampTex");
 	glUniform1i(rampTextureLocation, 4);
 	
-	auto      endTime = HiResTime::now();								// get current time
+	auto      endTime = HiResTime::now();								// get current time using a steady clock instead of system clock 
 	DeltaTime dt      = endTime - startTime;							// calculate total elapsed time since app started
 	MiliSec   dtMS    = std::chrono::duration_cast<MiliSec>(dt);		
 	glUniform1f(glGetUniformLocation(program, "Timer"), dtMS.count());	// tuck it in a uniform and pass it on to the shader

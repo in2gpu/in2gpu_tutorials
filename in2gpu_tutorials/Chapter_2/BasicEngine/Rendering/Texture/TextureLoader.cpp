@@ -25,8 +25,8 @@ unsigned int TextureLoader::LoadTexture(const std::string& filename, unsigned in
 	//filtering
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	//Following commented two lines are deprecated in OpenGL 3.1 and above.
-	//glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	//Following commented line is deprecated in OpenGL 3.1 and above.
 	//glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
 	float maxAnisotropy = 0.0f;
@@ -62,7 +62,6 @@ void TextureLoader::LoadBMPFile(const std::string& filename, unsigned int& width
 		height = 0;
 		return;
 	}
-
 
 	//reads the headers
 	Texture::BMP_Header h; Texture::BMP_Header_Info h_info;
