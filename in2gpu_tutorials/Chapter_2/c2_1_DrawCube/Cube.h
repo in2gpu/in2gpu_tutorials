@@ -1,8 +1,8 @@
 #pragma once
 
 #include <BasicEngine\Rendering\Models\Model.h>
-#include <time.h>
-#include <stdarg.h>
+//#include <time.h>
+//#include <stdarg.h>
 
 using namespace BasicEngine::Rendering::Models;
 class Cube : public Model
@@ -17,5 +17,5 @@ public:
 
 private:
 	glm::vec3 rotation, rotation_speed;
-	time_t timer;
+	//time_t timer;
 };
